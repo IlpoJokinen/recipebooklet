@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Page for adding a new recipe</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link type="text/css"rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<div class="text-center">
+	
+	<h1>New Recipe</h1>
+		<form th:object="${recipe}" th:action="@{save}" action="#" method="post">
+		
+			<div><label for="description">Description<br></label></div>
+			<input type="text" id="description" th:field="*{description}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		
+			<div><label for="instruction">Instruction<br></label></div>
+			<textarea rows="5" cols="50" id="instruction" th:field="*{instruction}"></textarea>
+			<div style="clear: both; display: block; height: 10px;"></div>
+		
+			<div><label for="ingredients">Ingredients<br></label></div>
+			<textarea rows="5" cols="30" id="ingredients" th:field="*{ingredients}"></textarea>
+			<div style="clear: both; display: block; height: 10px;"></div>
+		
+			<div><label for="time">Prepare time (min)<br></label></div>
+			<input type="text" size= "2" id="time" th:field="*{time}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<div style="clear: both; display: block; height: 40px;"></div>
+			<input type="submit" class="btn btn-success" value="Add Recipe"></input>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Page for editing a recipe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link type="text/css"rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<div class="text-center">
+		
+		<h1>Change Recipe</h1>
+		<form th:object="${recipe}" th:action="@{../save}" action="#" method="post">
+			
+			<input type="hidden" th:field="*{id}" class="form-control"/>
+			
+			<label for="description">Description<br></label>
+			<input type="text" id="description" th:field="*{description}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		
+			<label for="instruction">Instruction<br></label>
+			<textarea rows="5" cols="50" id="instruction" th:field="*{instruction}"></textarea>
+			<div style="clear: both; display: block; height: 10px;"></div>
+		
+			<label for="ingredients">Ingredients<br></label>
+			<textarea rows="5" cols="30" id="ingredients" th:field="*{ingredients}"></textarea>
+			<div style="clear: both; display: block; height: 10px;"></div>
+		
+			<label for="time">Prepare time (min)<br></label>
+			<input type="text" size= "2" id="time" th:field="*{time}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<label for="categories">Category</label>
+			<select id="categories" th:field="*{category}" class="form-control">
+				<option th:each="category: ${categories}"
+						th:value="${category.c_id}"
+						th:text="${category.name}"></option>
+			</select>
+			<div style="clear: both; display: block; height: 40px;"></div>
+			<input type="submit" value="Edit Recipe"></input>
+		</form>
+	</div>
+</body>
+</html>
