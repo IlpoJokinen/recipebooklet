@@ -1,17 +1,11 @@
 package com.example.Recipebooklet;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 import com.example.Recipebooklet.domain.Category;
 import com.example.Recipebooklet.domain.CategoryRepository;
@@ -21,8 +15,6 @@ import com.example.Recipebooklet.domain.User;
 import com.example.Recipebooklet.domain.UserRepository;
 
 @SpringBootApplication
-@EnableGlobalMethodSecurity(prePostEnabled = true, proxyTargetClass = true)
-@EntityScan(basePackages = "com.example.Recipebooklet.domain")
 public class RecipebookletApplication {
 	private static final Logger log = LoggerFactory.getLogger(RecipebookletApplication.class);
 
@@ -30,7 +22,7 @@ public class RecipebookletApplication {
 		SpringApplication.run(RecipebookletApplication.class, args);
 		
 	}
-	/*
+	
 	@Bean
 	public CommandLineRunner runner(RecipeRepository repository, CategoryRepository crepository, UserRepository urepository) {
 		return (args) -> {
@@ -57,5 +49,5 @@ public class RecipebookletApplication {
 				log.info(recipe.toString());
 			}
 		};
-	} */
+	} 
 }
